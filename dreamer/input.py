@@ -19,10 +19,10 @@ def inputs(filename, batch_size=64, num_epochs=10):
     with tf.name_scope('input'):
         dataset = tf.data.TFRecordDataset(filename)
         dataset = dataset.map(decode)
+        dataset = dataset.map(lambda x: tf.reshape(x, [31, 23]))
         dataset = dataset.map(lambda x: tf.one_hot(x, 33))
         dataset = dataset.shuffle(1000 + 3 * batch_size)
+        dataset = dataset.apply(tf.contrib.data.batch_and_drop_remainder(batch_size))
         dataset = dataset.repeat(num_epochs)
-        dataset = dataset.batch(batch_size)
-
         iterator = dataset.make_one_shot_iterator()
     return iterator.get_next()
