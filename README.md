@@ -10,17 +10,13 @@ they can be converted into images with copicat.
 
 ### network architecture
 
-The inputs are of shape 31 * 23 * 33 (33 Tiles, one-hot encoded).
-8 * 7 * 33.
+TODO
 
-### results
-not much, for now.
-Still TODO:
- - sophisticated network architecture
- - automate deployment and results monitoring
- - filter dataset for empty tilesets, filter out levels with certain tags
- 
- Heres a sample from iteration 0 🎉: 
+Generating discrete data is apparently a hard problem, some GAN's have been developed that can handle discrete data such as BGAN's
+https://www.microsoft.com/en-us/research/blog/boundary-seeking-gans-new-method-adversarial-generation-discrete-data/
+Another method is sequential generation.
+
+Well, for now, here is a sample from iteration 0 with vanilla gan 🎉: 
  <p align="center">
   <img src="https://github.com/falcowinkler/dreamer/raw/master/docu/sample.png" width="350">
 </p>
